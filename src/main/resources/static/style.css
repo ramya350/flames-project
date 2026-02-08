@@ -1,0 +1,235 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", Arial, sans-serif;
+}
+
+body {
+    height: 100vh;
+    overflow: hidden;
+    background: linear-gradient(135deg, #ff4d6d, #ff9a9e, #fad0c4);
+}
+
+/* Main center container */
+.container {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.big-result{
+    font-size: 22px;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+/* Glass effect card */
+.card {
+    width: 400px;
+    padding: 35px;
+    text-align: center;
+    border-radius: 20px;
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(12px);
+    box-shadow: 0px 10px 30px rgba(0,0,0,0.25);
+    border: 1px solid rgba(255,255,255,0.3);
+    animation: popUp 0.8s ease-in-out;
+    z-index: 10;
+    position: relative;
+}
+
+@keyframes popUp {
+    0% { transform: scale(0.7); opacity: 0; }
+    100% { transform: scale(1); opacity: 1; }
+}
+
+h1 {
+    font-size: 42px;
+    color: white;
+    letter-spacing: 2px;
+    text-shadow: 0px 5px 15px rgba(0,0,0,0.25);
+}
+
+.subtitle {
+    margin-top: 10px;
+    font-size: 14px;
+    color: white;
+    opacity: 0.9;
+}
+
+.input-box {
+    margin-top: 18px;
+}
+
+input {
+    width: 100%;
+    padding: 12px;
+    border-radius: 12px;
+    border: none;
+    outline: none;
+    font-size: 16px;
+    background: rgba(255,255,255,0.85);
+    box-shadow: 0px 4px 10px rgba(0,0,0,0.15);
+    transition: 0.3s;
+}
+
+input:focus {
+    transform: scale(1.03);
+    box-shadow: 0px 6px 15px rgba(0,0,0,0.25);
+}
+
+button {
+    width: 100%;
+    padding: 13px;
+    margin-top: 22px;
+    border-radius: 12px;
+    border: none;
+    font-size: 17px;
+    font-weight: bold;
+    background: linear-gradient(135deg, #ff004c, #ff4d6d);
+    color: white;
+    cursor: pointer;
+    box-shadow: 0px 6px 18px rgba(0,0,0,0.25);
+    transition: 0.3s;
+}
+
+button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0px 10px 25px rgba(0,0,0,0.35);
+}
+.btn-row{
+    margin-top: 20px;
+    display: flex;
+    gap: 10px;
+}
+
+.btn-row button{
+    width: 70%;
+    margin-top: 0;
+}
+
+.reset-btn{
+    width: 30%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 12px;
+    text-decoration: none;
+    font-weight: bold;
+    color: white;
+    background: rgba(255,255,255,0.25);
+    border: 1px solid rgba(255,255,255,0.4);
+    transition: 0.3s;
+}
+
+.reset-btn:hover{
+    background: rgba(255,255,255,0.4);
+}
+
+.result-box {
+    margin-top: 22px;
+    padding: 14px;
+    border-radius: 14px;
+    background: rgba(255,255,255,0.85);
+    color: #ff004c;
+    font-size: 18px;
+    font-weight: bold;
+    animation: fadeIn 0.7s ease-in-out;
+}
+.result-box.love{
+    background: rgba(255, 192, 203, 0.85);
+    color: #b3003b;
+}
+
+.result-box.friend{
+    background: rgba(173, 216, 230, 0.85);
+    color: #003366;
+}
+
+.result-box.marriage{
+    background: rgba(144, 238, 144, 0.85);
+    color: #004d00;
+}
+
+.result-box.affection{
+    background: rgba(255, 255, 150, 0.85);
+    color: #665500;
+}
+
+.result-box.enemies{
+    background: rgba(255, 120, 120, 0.85);
+    color: #660000;
+}
+
+.result-box.sister{
+    background: rgba(230, 230, 250, 0.85);
+    color: #3a2b6d;
+}
+.fullform{
+    font-size: 12px;
+    color: white;
+    opacity: 0.85;
+    margin-top: 10px;
+    line-height: 18px;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0px); }
+}
+
+/* ------------------- Floating Hearts Animation ------------------- */
+.hearts span {
+    position: absolute;
+    bottom: -50px;
+    width: 18px;
+    height: 18px;
+    background: rgba(255, 255, 255, 0.7);
+    transform: rotate(45deg);
+    animation: floatUp 8s infinite ease-in;
+    border-radius: 4px;
+}
+
+.hearts span::before,
+.hearts span::after {
+    content: "";
+    position: absolute;
+    width: 18px;
+    height: 18px;
+    background: rgba(255, 255, 255, 0.7);
+    border-radius: 50%;
+}
+
+.hearts span::before {
+    top: -9px;
+    left: 0;
+}
+
+.hearts span::after {
+    left: -9px;
+    top: 0;
+}
+
+@keyframes floatUp {
+    0% { transform: translateY(0) rotate(45deg); opacity: 1; }
+    100% { transform: translateY(-120vh) rotate(45deg); opacity: 0; }
+}
+
+/* Different positions & speeds */
+.hearts span:nth-child(1)  { left: 5%;  animation-duration: 7s;  }
+.hearts span:nth-child(2)  { left: 12%; animation-duration: 10s; }
+.hearts span:nth-child(3)  { left: 20%; animation-duration: 8s;  }
+.hearts span:nth-child(4)  { left: 28%; animation-duration: 11s; }
+.hearts span:nth-child(5)  { left: 36%; animation-duration: 9s;  }
+.hearts span:nth-child(6)  { left: 44%; animation-duration: 7s;  }
+.hearts span:nth-child(7)  { left: 52%; animation-duration: 12s; }
+.hearts span:nth-child(8)  { left: 60%; animation-duration: 8s;  }
+.hearts span:nth-child(9)  { left: 68%; animation-duration: 10s; }
+.hearts span:nth-child(10) { left: 76%; animation-duration: 9s;  }
+.hearts span:nth-child(11) { left: 84%; animation-duration: 7s;  }
+.hearts span:nth-child(12) { left: 92%; animation-duration: 13s; }
+.hearts span:nth-child(13) { left: 15%; animation-duration: 14s; }
+.hearts span:nth-child(14) { left: 55%; animation-duration: 15s; }
+.hearts span:nth-child(15) { left: 75%; animation-duration: 16s; }
