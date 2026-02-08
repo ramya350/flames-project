@@ -1,25 +1,14 @@
-# Use OpenJDK 21 as base image
-FROM openjdk:21-jdk-slim
+# Use Eclipse Temurin JDK 21 slim image
+FROM eclipse-temurin:21-jdk-slim
 
-# Set working directory inside the container
+# Set working directory
 WORKDIR /app
 
-# Copy only the pom.xml first for dependency caching
-COPY pom.xml .
+# Copy jar file from target
+COPY target/demo-0.0.1-SNAPSHOT.jar app.jar
 
-# Install Maven, build dependencies only
-RUN apt-get update && \
-    apt-get install -y maven && \
-    mvn dependency:resolve
-
-# Copy the rest of the project
-COPY src ./src
-
-# Build the project
-RUN mvn clean package -DskipTests
-
-# Expose Spring Boot default port
+# Expose Spring Boot port
 EXPOSE 8080
 
-# Run the Spring Boot jar
-CMD ["java", "-jar", "target/demo-0.0.1-SNAPSHOT.jar"]
+# Run the jar
+ENTRYPOINT ["java", "-jar", "app.jar"]
