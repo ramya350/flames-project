@@ -1,235 +1,177 @@
-*{
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: "Poppins", Arial, sans-serif;
+    font-family: 'Poppins', sans-serif;
 }
 
 body {
-    height: 100vh;
-    overflow: hidden;
-    background: linear-gradient(135deg, #ff4d6d, #ff9a9e, #fad0c4);
-}
-
-/* Main center container */
-.container {
-    height: 100vh;
+    background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+    min-height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
+    transition: 0.4s;
+    padding: 20px;
 }
 
-.big-result{
-    font-size: 22px;
-    font-weight: bold;
-    letter-spacing: 1px;
-}
-
-/* Glass effect card */
-.card {
-    width: 400px;
-    padding: 35px;
-    text-align: center;
-    border-radius: 20px;
-    background: rgba(255, 255, 255, 0.2);
-    backdrop-filter: blur(12px);
-    box-shadow: 0px 10px 30px rgba(0,0,0,0.25);
-    border: 1px solid rgba(255,255,255,0.3);
-    animation: popUp 0.8s ease-in-out;
-    z-index: 10;
-    position: relative;
-}
-
-@keyframes popUp {
-    0% { transform: scale(0.7); opacity: 0; }
-    100% { transform: scale(1); opacity: 1; }
-}
-
-h1 {
-    font-size: 42px;
-    color: white;
-    letter-spacing: 2px;
-    text-shadow: 0px 5px 15px rgba(0,0,0,0.25);
-}
-
-.subtitle {
-    margin-top: 10px;
-    font-size: 14px;
-    color: white;
-    opacity: 0.9;
-}
-
-.input-box {
-    margin-top: 18px;
-}
-
-input {
-    width: 100%;
-    padding: 12px;
-    border-radius: 12px;
-    border: none;
-    outline: none;
-    font-size: 16px;
-    background: rgba(255,255,255,0.85);
-    box-shadow: 0px 4px 10px rgba(0,0,0,0.15);
-    transition: 0.3s;
-}
-
-input:focus {
-    transform: scale(1.03);
-    box-shadow: 0px 6px 15px rgba(0,0,0,0.25);
-}
-
-button {
-    width: 100%;
-    padding: 13px;
-    margin-top: 22px;
-    border-radius: 12px;
-    border: none;
-    font-size: 17px;
-    font-weight: bold;
-    background: linear-gradient(135deg, #ff004c, #ff4d6d);
-    color: white;
-    cursor: pointer;
-    box-shadow: 0px 6px 18px rgba(0,0,0,0.25);
-    transition: 0.3s;
-}
-
-button:hover {
-    transform: translateY(-3px);
-    box-shadow: 0px 10px 25px rgba(0,0,0,0.35);
-}
-.btn-row{
-    margin-top: 20px;
+/* Top bar */
+.top-bar {
+    position: absolute;
+    top: 15px;
+    right: 15px;
     display: flex;
     gap: 10px;
 }
 
-.btn-row button{
-    width: 70%;
-    margin-top: 0;
-}
-
-.reset-btn{
-    width: 30%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.toggle-btn {
+    border: none;
+    padding: 10px 14px;
     border-radius: 12px;
-    text-decoration: none;
-    font-weight: bold;
-    color: white;
-    background: rgba(255,255,255,0.25);
-    border: 1px solid rgba(255,255,255,0.4);
+    cursor: pointer;
+    font-weight: 600;
+    background: rgba(255,255,255,0.6);
     transition: 0.3s;
 }
 
-.reset-btn:hover{
-    background: rgba(255,255,255,0.4);
+.toggle-btn:hover {
+    transform: scale(1.05);
 }
 
-.result-box {
-    margin-top: 22px;
+/* Main container */
+.container {
+    background: rgba(255,255,255,0.75);
+    padding: 30px;
+    border-radius: 18px;
+    width: 420px;
+    text-align: center;
+    box-shadow: 0px 10px 25px rgba(0,0,0,0.2);
+    backdrop-filter: blur(12px);
+}
+
+.title {
+    font-size: 28px;
+    font-weight: 700;
+    margin-bottom: 8px;
+}
+
+.subtitle {
+    font-size: 14px;
+    margin-bottom: 18px;
+    opacity: 0.8;
+}
+
+.form-box input {
+    width: 100%;
     padding: 14px;
-    border-radius: 14px;
-    background: rgba(255,255,255,0.85);
-    color: #ff004c;
-    font-size: 18px;
-    font-weight: bold;
-    animation: fadeIn 0.7s ease-in-out;
-}
-.result-box.love{
-    background: rgba(255, 192, 203, 0.85);
-    color: #b3003b;
+    border: none;
+    border-radius: 12px;
+    margin: 10px 0;
+    font-size: 15px;
+    outline: none;
 }
 
-.result-box.friend{
-    background: rgba(173, 216, 230, 0.85);
-    color: #003366;
-}
-
-.result-box.marriage{
-    background: rgba(144, 238, 144, 0.85);
-    color: #004d00;
-}
-
-.result-box.affection{
-    background: rgba(255, 255, 150, 0.85);
-    color: #665500;
-}
-
-.result-box.enemies{
-    background: rgba(255, 120, 120, 0.85);
-    color: #660000;
-}
-
-.result-box.sister{
-    background: rgba(230, 230, 250, 0.85);
-    color: #3a2b6d;
-}
-.fullform{
-    font-size: 12px;
-    color: white;
-    opacity: 0.85;
+.btn-row {
+    display: flex;
+    gap: 10px;
     margin-top: 10px;
-    line-height: 18px;
 }
 
-@keyframes fadeIn {
-    from { opacity: 0; transform: translateY(10px); }
-    to { opacity: 1; transform: translateY(0px); }
+.btn {
+    flex: 1;
+    padding: 14px;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 15px;
+    background: #ff4b7d;
+    color: white;
+    transition: 0.3s;
 }
 
-/* ------------------- Floating Hearts Animation ------------------- */
-.hearts span {
-    position: absolute;
-    bottom: -50px;
-    width: 18px;
-    height: 18px;
-    background: rgba(255, 255, 255, 0.7);
-    transform: rotate(45deg);
-    animation: floatUp 8s infinite ease-in;
-    border-radius: 4px;
+.btn:hover {
+    transform: scale(1.05);
 }
 
-.hearts span::before,
-.hearts span::after {
-    content: "";
-    position: absolute;
-    width: 18px;
-    height: 18px;
-    background: rgba(255, 255, 255, 0.7);
-    border-radius: 50%;
+.reset {
+    background: #444;
 }
 
-.hearts span::before {
-    top: -9px;
-    left: 0;
+/* Result box */
+.result-box {
+    margin-top: 20px;
+    padding: 18px;
+    border-radius: 14px;
+    background: rgba(255,255,255,0.9);
+    box-shadow: 0px 5px 15px rgba(0,0,0,0.15);
 }
 
-.hearts span::after {
-    left: -9px;
-    top: 0;
+.result-text {
+    font-size: 18px;
+    font-weight: 600;
+    margin-top: 10px;
+    color: #ff2b6d;
 }
 
-@keyframes floatUp {
-    0% { transform: translateY(0) rotate(45deg); opacity: 1; }
-    100% { transform: translateY(-120vh) rotate(45deg); opacity: 0; }
+/* Animation */
+.animate {
+    animation: pop 0.6s ease-in-out;
 }
 
-/* Different positions & speeds */
-.hearts span:nth-child(1)  { left: 5%;  animation-duration: 7s;  }
-.hearts span:nth-child(2)  { left: 12%; animation-duration: 10s; }
-.hearts span:nth-child(3)  { left: 20%; animation-duration: 8s;  }
-.hearts span:nth-child(4)  { left: 28%; animation-duration: 11s; }
-.hearts span:nth-child(5)  { left: 36%; animation-duration: 9s;  }
-.hearts span:nth-child(6)  { left: 44%; animation-duration: 7s;  }
-.hearts span:nth-child(7)  { left: 52%; animation-duration: 12s; }
-.hearts span:nth-child(8)  { left: 60%; animation-duration: 8s;  }
-.hearts span:nth-child(9)  { left: 68%; animation-duration: 10s; }
-.hearts span:nth-child(10) { left: 76%; animation-duration: 9s;  }
-.hearts span:nth-child(11) { left: 84%; animation-duration: 7s;  }
-.hearts span:nth-child(12) { left: 92%; animation-duration: 13s; }
-.hearts span:nth-child(13) { left: 15%; animation-duration: 14s; }
-.hearts span:nth-child(14) { left: 55%; animation-duration: 15s; }
-.hearts span:nth-child(15) { left: 75%; animation-duration: 16s; }
+@keyframes pop {
+    0% { transform: scale(0.6); opacity: 0; }
+    100% { transform: scale(1); opacity: 1; }
+}
+
+/* History */
+.history-box {
+    margin-top: 20px;
+    padding: 15px;
+    border-radius: 14px;
+    background: rgba(255,255,255,0.7);
+}
+
+.history-box ul {
+    list-style: none;
+    margin-top: 10px;
+    text-align: left;
+    max-height: 120px;
+    overflow-y: auto;
+    padding: 0 5px;
+}
+
+.history-box li {
+    background: rgba(255,255,255,0.9);
+    padding: 10px;
+    border-radius: 10px;
+    margin-bottom: 8px;
+    font-size: 13px;
+}
+
+/* DARK MODE */
+body.dark {
+    background: linear-gradient(135deg, #232526, #414345);
+}
+
+body.dark .container {
+    background: rgba(30,30,30,0.8);
+    color: white;
+}
+
+body.dark .form-box input {
+    background: rgba(255,255,255,0.1);
+    color: white;
+}
+
+body.dark .result-box,
+body.dark .history-box {
+    background: rgba(255,255,255,0.1);
+}
+
+body.dark .toggle-btn {
+    background: rgba(0,0,0,0.5);
+    color: white;
+}

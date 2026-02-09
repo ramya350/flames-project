@@ -1,48 +1,51 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
-    <title>FLAMES Calculator</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FLAMES 💖</title>
+
     <link rel="stylesheet" href="/style.css">
 </head>
-
 <body>
 
-<!-- Animated floating hearts -->
-<div class="hearts">
-    <span></span><span></span><span></span><span></span><span></span>
-    <span></span><span></span><span></span><span></span><span></span>
-    <span></span><span></span><span></span><span></span><span></span>
+<!-- Background Music -->
+<audio id="bgMusic" loop>
+    <source src="/music/music.mp3" type="audio/mpeg">
+</audio>
+
+<div class="top-bar">
+    <button class="toggle-btn" onclick="toggleDarkMode()">🌙 Dark Mode</button>
+    <button class="toggle-btn" onclick="toggleMusic()">🎵 Music</button>
 </div>
 
 <div class="container">
-    <div class="card">
-        <h1>🔥 FLAMES</h1>
-        <p class="subtitle">Enter names and check your relationship 💖</p>
-        <p class="fullform">
-            F - Friends | L - Love | A - Affection | M - Marriage | E - Enemies | S - Sister
-        </p>
+    <h1 class="title">🔥 FLAMES Calculator 🔥</h1>
+    <p class="subtitle">Enter names and check your relationship 💘</p>
 
-        <form action="/flames" method="post">
-            <div class="input-box">
-                <input type="text" name="bn" placeholder="Boy Name" required>
-            </div>
+    <form action="/flames" method="post" class="form-box">
+        <input type="text" name="bn" placeholder="Enter Boy Name" required>
+        <input type="text" name="gn" placeholder="Enter Girl Name" required>
 
-            <div class="input-box">
-                <input type="text" name="gn" placeholder="Girl Name" required>
-            </div>
-
-            <button type="submit">Check FLAMES</button>
-            <div class="btn-row">
-                <button type="submit">Check FLAMES</button>
-                <a class="reset-btn" href="/">Reset</a>
-            </div>
-        </form>
-
-        <div class="result-box" th:if="${result != null}" th:classappend="' ' + ${type}">
-            <p class="big-result" th:text="${result}"></p>
+        <div class="btn-row">
+            <button type="submit" class="btn">Check FLAMES</button>
+            <button type="button" class="btn reset" onclick="resetForm()">Reset</button>
         </div>
+    </form>
+
+    <!-- Result -->
+    <div th:if="${result}" class="result-box animate">
+        <h2>✨ Result ✨</h2>
+        <p class="result-text" th:text="${result}"></p>
+    </div>
+
+    <!-- History -->
+    <div class="history-box">
+        <h3>📌 Last 5 Results</h3>
+        <ul id="historyList"></ul>
     </div>
 </div>
 
+<script src="/js/script.js"></script>
 </body>
 </html>
