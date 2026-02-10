@@ -12,6 +12,11 @@ public class FlamesController {
     @Autowired
     private FlamesService flamesService;
 
+    @GetMapping("/")
+    public String home() {
+        return "index";
+    }
+
 
     @PostMapping("/flames")
     public String flamesResult(@RequestParam String bn,
